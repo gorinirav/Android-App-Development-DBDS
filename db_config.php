@@ -1,9 +1,5 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 $servername = "rddb.chl55zwgoe4a.us-east-1.rds.amazonaws.com";
 $username = "admin";
 $password = "us-east-1.console";
