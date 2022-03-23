@@ -1,9 +1,9 @@
 <?php
 
-$servername = "rddb.chl55zwgoe4a.us-east-1.rds.amazonaws.com";
-$username = "admin";
-$password = "us-east-1.console";
-$dbname = "tetstdb";
+$servername = "rds-mysql-project1-dbds.chl55zwgoe4a.us-east-1.rds.amazonaws.com";
+$username = "masterUsers6";
+$password = "mysqlrds1";
+$dbname = "rdsMysql";
 $port = "3306";
 
 
