@@ -24,13 +24,15 @@ class backend
     {
         $query = isset($_POST['query']) ? $_POST['query'] : "Select * from cat_id";
         $req = isset($_POST['req']) ? $_POST['req'] : "";
-        if($req = 'GET'){
         include 'db_config.php';
         $result = mysqli_query($link, $query);
+        if($req == 'GET'){
         while ($row = mysqli_fetch_assoc($result)) {
             $data[] = $row;
         }
         echo json_encode($data);
+    } else{
+        print_r($result);
     }
     }
 }
