@@ -19,7 +19,6 @@ class backend
 
     public function getdata()
     {
-        set_time_limit(300);
         $query = isset($_POST['query']) ? $_POST['query'] : "Select * from cat_id";
         include 'db_config.php';
         $result = mysqli_query($link, $query);
