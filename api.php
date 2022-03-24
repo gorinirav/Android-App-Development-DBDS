@@ -11,7 +11,10 @@ $obj = new backend();
 
 if ($method == 'getdata') {
     $obj->getdata();
-}  else {
+}
+if ($method == 'getrdsdata') {
+    $obj->getrdsdata();
+} else {
     echo 'why are you here';
 }
 class backend
@@ -26,13 +29,27 @@ class backend
         $req = isset($_POST['req']) ? $_POST['req'] : "";
         include 'db_config.php';
         $result = mysqli_query($link, $query);
-        if($req == 'GET'){
-        while ($row = mysqli_fetch_assoc($result)) {
-            $data[] = $row;
+        if ($req == 'GET') {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $data[] = $row;
+            }
+            echo json_encode($data);
+        } else {
+            print_r($result);
         }
-        echo json_encode($data);
-    } else{
-        print_r($result);
     }
+
+    public function getrdsdata()
+    {
+        $query = isset($_POST['query']) ? $_POST['query'] : "Select * from aisles";
+        $req = isset($_POST['req']) ? $_POST['req'] : "";
+        $data = [];
+        $jsondata = [];
+        include 'rds_db_config.php';
+        $RecordSet = odbc_exec($ODBCConnection, $query);
+
+        while (odbc_fetch_row($RecordSet)) {
+            $result = odbc_result_all($RecordSet, "class='table'");
+        }
     }
 }
